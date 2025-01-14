@@ -354,85 +354,137 @@
 
     </section><!-- /Services 2 Section -->
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
+   <!-- Contact Section -->
+   <section id="contact" class="contact section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Connect with us!</p>
-      </div><!-- End Section Title -->
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Contact</h2>
+      <p>Connect with us!</p>
+    </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4">
-          <div class="col-lg-6 ">
-            <div class="row gy-4">
+      <div class="row gy-4">
+        <div class="col-lg-6 ">
+          <div class="row gy-4">
 
-              <div class="col-lg-12">
-                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
-                  <i class="bi bi-geo-alt"></i>
-                  <h3>Address</h3>
-                  <p>3rd  FLoor , B-Block , SGU , Atigre - 416 118</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="col-md-6">
-                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
-                  <i class="bi bi-telephone"></i>
-                  <h3>Call Us</h3>
-                  <p>+91 7249652851</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="col-md-6">
-                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
-                  <i class="bi bi-envelope"></i>
-                  <h3>Email Us</h3>
-                  <p>info@example.com</p>
-                </div>
-              </div><!-- End Info Item -->
-
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <form id="contactForm" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
-              <div class="row gy-4">
-            
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                </div>
-            
-                <div class="col-md-6">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                </div>
-            
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-                </div>
-            
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="4" placeholder="Message" required></textarea>
-                </div>
-            
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading...</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                  <button type="submit">Send Message</button>
-                </div>
+            <div class="col-lg-12">
+              <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-geo-alt"></i>
+                <h3>Address</h3>
+                <p>3rd  FLoor , B-Block , SGU , Atigre - 416 118</p>
               </div>
-            </form>
-          
-          </div><!-- End Contact Form -->
+            </div><!-- End Info Item -->
 
+            <div class="col-md-6">
+              <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-telephone"></i>
+                <h3>Call Us</h3>
+                <p>+91 7249652851</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="col-md-6">
+              <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-envelope"></i>
+                <h3>Email Us</h3>
+                <p>info@example.com</p>
+              </div>
+            </div><!-- End Info Item -->
+
+          </div>
         </div>
-      </div>
- 
-    </section><!-- /Contact Section -->
 
-  </main>
+        <div class="col-lg-6">
+          <!-- EmailJS script -->
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+            <script type="text/javascript">
+                (function() {
+                    // Initialize EmailJS with your public key
+                    emailjs.init("DUNUGfReDoZoRHP7Y");
+                })();
+            </script>
+
+            <script type="text/javascript">
+                window.onload = function() {
+                    document.getElementById('contactForm').addEventListener('submit', function(event) {
+                        event.preventDefault();
+
+                        // Send form data to EmailJS
+                        emailjs.sendForm('service_0ec535o', 'template_3l9imhi', this)
+                            .then(() => {
+                                console.log('SUCCESS!');
+                            }, (error) => {
+                                console.log('FAILED...', error);
+                            });
+                    });
+                }
+            </script>
+
+            <!-- Contact Form -->
+            <form id="contactForm" data-aos="fade-up" data-aos-delay="500">
+                <div class="row gy-4">
+                    <div class="col-md-6">
+                        <input type="text" name="user_name" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <input type="email" name="user_email" placeholder="Your Email" required>
+                    </div>
+
+                    <div class="col-md-12">
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <button type="submit">Send Message</button>
+                    </div>
+                </div>
+            </form>
+
+        
+          
+        </div>
+        
+          
+          <!-- <form id="contactForm" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
+            <div class="row gy-4">
+          
+              <div class="col-md-6">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+              </div>
+          
+              <div class="col-md-6">
+                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+              </div>
+          
+              <div class="col-md-12">
+                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+              </div>
+          
+              <div class="col-md-12">
+                <textarea class="form-control" name="message" rows="4" placeholder="Message" required></textarea>
+              </div>
+          
+              <div class="col-md-12 text-center">
+                <div class="loading">Loading...</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <button type="submit">Send Message</button>
+              </div>
+            </div>
+          </form> -->
+        
+        </div><!-- End Contact Form -->
+
+      </div>
+    </div>
+
+  </section><!-- /Contact Section -->
+
+</main>
 <section>
     <footer id="footer" class="footer dark-background">
 
